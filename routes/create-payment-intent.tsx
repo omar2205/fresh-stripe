@@ -9,8 +9,9 @@ if (!IS_PROD) {
 
 const SEC_KEY = Deno.env.get('SEC_KEY') || ''
 
-const stripe = Stripe(SEC_KEY, {
+const stripe = new Stripe(SEC_KEY, {
   httpClient: Stripe.createFetchHttpClient(),
+  apiVersion: '2022-08-01'
 })
 
 export const handler: Handlers = {
