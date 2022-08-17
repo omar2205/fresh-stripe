@@ -2,8 +2,14 @@ import { Handlers, PageProps } from '$fresh/server.ts'
 import Stripe from 'https://esm.sh/stripe@10.2.0?target=deno'
 import { config as Config } from 'https://deno.land/x/dotenv@v3.2.0/mod.ts'
 
-const config = Config({ export: true })
-const stripe = Stripe(config.SEC_KEY, {
+const IS_PROD = Deno.env.get('DENO_ENV') === 'prod'
+if (!IS_PROD) {
+  Config({ export: true })
+}
+
+const SEC_KEY = Deno.env.get('PUB_KEY') || ''
+
+const stripe = Stripe(SEC_KEY, {
   httpClient: Stripe.createFetchHttpClient(),
 })
 
