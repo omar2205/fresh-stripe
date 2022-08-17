@@ -10,12 +10,12 @@ import {
   type Stripe,
   type StripeElements,
   type loadStripe as LoadStripe,
-} from 'https://esm.sh/@stripe/stripe-js@1.35.0'
+} from '@stripe/stripe-js'
 
 let loadStripe: typeof LoadStripe
 
 if (IS_BROWSER) {
-  loadStripe = (await import('https://esm.sh/@stripe/stripe-js@1.35.0'))
+  loadStripe = (await import('@stripe/stripe-js'))
     .loadStripe
 }
 

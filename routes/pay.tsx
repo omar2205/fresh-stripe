@@ -3,9 +3,9 @@ import { h } from 'preact'
 import { tw } from '@twind'
 
 import { Handlers, PageProps } from '$fresh/server.ts'
-import { Head } from 'https://deno.land/x/fresh@1.0.2/runtime.ts'
+import { Head } from '$fresh/runtime.ts'
 
-import { config as Config } from 'https://deno.land/x/dotenv@v3.2.0/mod.ts'
+import { config as Config } from 'dotenv'
 import PayElement from '../islands/PayElement.tsx'
 
 const IS_PROD = Deno.env.get('DENO_ENV') === 'prod'
